@@ -1,4 +1,22 @@
 package com.bt.guavatutorial;
+/**
+ * This tutorial is a drawer activity of 14 fragments
+ * The basic fragment has tab pager to explain 5 guava related features
+ *      which means it has 5 fragments
+ * The fragments have a description of the guava feature
+ * and a button to run the code and show the result
+ *
+ * Guava has been around for a long time Version 10.0 was released in 2011
+ * There is a migration path from Apache Commons Utilities to Google Guava which has better support and adoption
+ * These utilities are common features that developers may try to code themselves.
+ * The benefit to using Guava is tested and maintained libraries
+ * Another benefit of Guava over Java collections is the optimized footprint for collections
+ * for mutable collections adding elements or entries might trigger an expensive "resize"
+ * which when using Guava the performance benchmarks are significantly better than
+ * native Java collections
+ *
+ *
+ */
 
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -17,13 +35,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
-
-import com.google.common.base.Optional;
-import com.google.common.math.LongMath;
-
-import static java.math.RoundingMode.FLOOR;
 
 public class MainActivity extends AppCompatActivity {
     public static String TAG = "GuavaTutorial";

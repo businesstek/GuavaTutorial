@@ -15,6 +15,7 @@ package com.bt.guavatutorial;
 
 import android.util.Log;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
@@ -26,9 +27,9 @@ import java.util.List;
 
 import static java.math.RoundingMode.FLOOR;
 
-public class GuavaTutorial {
+public class GuavaBasic {
 
-    public GuavaTutorial() {
+    public GuavaBasic() {
 
     }
 
@@ -42,8 +43,8 @@ public class GuavaTutorial {
     Optional<Integer> b = Optional.of(value2);
 
     public void guavaOptional() {
-        GuavaTutorial guavaTutorial = new GuavaTutorial();
-        Log.i(MainActivity.TAG, guavaTutorial.sum(a, b).toString());
+        GuavaBasic guavaBasic = new GuavaBasic();
+        Log.i(MainActivity.TAG, guavaBasic.sum(a, b).toString());
     }
 
     public Integer sum(Optional<Integer> a, Optional<Integer> b) {
@@ -61,19 +62,19 @@ public class GuavaTutorial {
      */
 
     public void guavaPreconditions() {
-        GuavaTutorial guavaTutorial = new GuavaTutorial();
+        GuavaBasic guavaBasic = new GuavaBasic();
         try {
-            Log.i(MainActivity.TAG, String.valueOf(guavaTutorial.sqrtPre(-3.0)));
+            Log.i(MainActivity.TAG, String.valueOf(guavaBasic.sqrtPre(-3.0)));
         } catch (IllegalArgumentException e) {
             Log.i(MainActivity.TAG, e.getMessage());
         }
         try {
-            Log.i(MainActivity.TAG, String.valueOf(guavaTutorial.sumPre(null, 3)));
+            Log.i(MainActivity.TAG, String.valueOf(guavaBasic.sumPre(null, 3)));
         } catch (NullPointerException e) {
             Log.i(MainActivity.TAG, e.getMessage());
         }
         try {
-            Log.i(MainActivity.TAG, String.valueOf(guavaTutorial.getValuePre(6)));
+            Log.i(MainActivity.TAG, String.valueOf(guavaBasic.getValuePre(6)));
         } catch (IndexOutOfBoundsException e) {
             Log.i(MainActivity.TAG, e.getMessage());
         }
@@ -135,7 +136,7 @@ public class GuavaTutorial {
         Log.i(MainActivity.TAG,(s1.equals(s2)?"true":"false"));
         Log.i(MainActivity.TAG,String.valueOf(s1.hashCode()));
         Log.i(MainActivity.TAG,
-                Objects.toStringHelper(s1)
+                MoreObjects.toStringHelper(s1)
                         .add("Name",s1.getFirstName()+" " + s1.getLastName()) .add("Class", s1.getClassName())
                         .add("Roll No", s1.getRollNo())
                         .toString());
@@ -202,7 +203,17 @@ public class GuavaTutorial {
 
     /**
      * Throwables
+     *
+     * Guava provides several utilities to simplify propagating exceptions.
+     * and
+     * Guava provides more information to causal chain
+     *      Throwable getRootCause(Throwable)
+     *      List<Throwable> getCausalChain(Throwable)
+     *      String getStackTraceAsString(Throwable)
+     *
      */
+
+
 
 }
 
