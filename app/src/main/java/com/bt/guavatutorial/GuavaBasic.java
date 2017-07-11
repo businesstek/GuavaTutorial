@@ -26,6 +26,7 @@ import java.util.List;
  * Throwables
  */
 
+
 public class GuavaBasic extends GuavaClass {
     GuavaBasic(){
 
