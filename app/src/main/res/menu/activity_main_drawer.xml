@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_basic"
+            android:title="Basic" />
+        <item
+            android:id="@+id/nav_caching"
+            android:title="Caching" />
+        <item
+            android:id="@+id/nav_collections"
+            android:title="Collections" />
+        <item
+            android:id="@+id/nav_concurrency"
+            android:title="Concurrency" />
+        <item
+            android:id="@+id/nav_eventbus"
+            android:title="Eventbus" />
+        <item
+            android:id="@+id/nav_functional"
+            android:title="Functional" />
+        <item
+            android:id="@+id/nav_graphs"
+            android:title="Graphs" />
+        <item
+            android:id="@+id/nav_hashing"
+            android:title="Hashing" />
+        <item
+            android:id="@+id/nav_math"
+            android:title="Math" />
+        <item
+            android:id="@+id/nav_networking"
+            android:title="Networking" />
+        <item
+            android:id="@+id/nav_primitives"
+            android:title="Primitives" />
+        <item
+            android:id="@+id/nav_ranges"
+            android:title="Ranges" />
+        <item
+            android:id="@+id/nav_reflection"
+            android:title="Reflection" />
+        <item
+            android:id="@+id/nav_strings"
+            android:title="Strings" />
+    </group>
+
+</menu>
