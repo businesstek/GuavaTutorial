@@ -40,9 +40,10 @@ public class GuavaBasic extends GuavaClass {
 
     /**
      * Optional
+     * fromNullable could be replaced with @Nullable
      */
-    Integer value1 = null;
-    Integer value2 = new Integer(10);
+    private Integer value1 = null;
+    private Integer value2 = 10;
     Optional<Integer> a = Optional.fromNullable(value1);
     Optional<Integer> b = Optional.of(value2);
 
@@ -51,7 +52,7 @@ public class GuavaBasic extends GuavaClass {
         Log.i(MainActivity.TAG, guavaBasic.sum(a, b).toString());
     }
 
-    public Integer sum(Optional<Integer> a, Optional<Integer> b) {
+    Integer sum(Optional<Integer> a, Optional<Integer> b) {
 
         String str = "false";
         if (b.isPresent()) {
@@ -85,13 +86,13 @@ public class GuavaBasic extends GuavaClass {
     }
 
 
-    public double sqrtPre(double input) throws IllegalArgumentException {
+    double sqrtPre(double input) throws IllegalArgumentException {
         Preconditions.checkArgument(input > 0.0,
                 "Illegal Argument passed: Negative value %s.", input);
         return Math.sqrt(input);
     }
 
-    public int sumPre(Integer a, Integer b) {
+    int sumPre(Integer a, Integer b) {
         a = Preconditions.checkNotNull(a,
                 "Illegal Argument passed: First parameter is Null.");
         b = Preconditions.checkNotNull(b,
@@ -99,7 +100,7 @@ public class GuavaBasic extends GuavaClass {
         return a + b;
     }
 
-    public int getValuePre(int input) {
+    int getValuePre(int input) {
         int[] data = {1, 2, 3, 4, 5};
         Preconditions.checkElementIndex(input, data.length,
                 "Illegal Argument passed: Invalid index.");
@@ -113,9 +114,7 @@ public class GuavaBasic extends GuavaClass {
     private void guavaOrdering() {
         final Integer[] items = {5, 2, 15, 51, 53, 35, 45, 32, 43, 16};
         List<Integer> numbers = new ArrayList<Integer>();
-        for (Integer item: items){
-            numbers.add(new Integer(item));
-        }
+        Collections.addAll(numbers, items);
 
         Ordering ordering = Ordering.natural();
         Log.i(MainActivity.TAG,"Input List: ");
@@ -145,12 +144,14 @@ public class GuavaBasic extends GuavaClass {
                         .add("Roll No", s1.getRollNo())
                         .toString());
     }
-    class Student{
+
+    private class Student{
         private String firstName;
         private String lastName;
         private int rollNo;
         private String className;
-        public Student(String firstName, String lastName, int rollNo, String className){
+
+        Student(String firstName, String lastName, int rollNo, String className){
             this.firstName = firstName;
             this.lastName = lastName;
             this.rollNo = rollNo;
@@ -159,7 +160,7 @@ public class GuavaBasic extends GuavaClass {
 
         @Override
         public boolean equals(Object object){
-            if(!(object instanceof Student) || object == null){
+            if(!(object instanceof Student)){
                 return false;
             }
             Student student = (Student)object;
@@ -177,26 +178,26 @@ public class GuavaBasic extends GuavaClass {
             //no need to compute hashCode by self
             return Objects.hashCode(className,rollNo);
         }
-        public String getFirstName() {
+        String getFirstName() {
             return firstName;
         }
         public void setFirstName(String firstName) {
             this.firstName = firstName;
         }
-        public String getLastName() {
+        String getLastName() {
             return lastName;
         }
         public void setLastName(String lastName) {
             this.lastName = lastName;
         }
-        public int getRollNo() {
+        int getRollNo() {
             return rollNo;
 
         }
         public void setRollNo(int rollNo) {
             this.rollNo = rollNo;
         }
-        public String getClassName() {
+        String getClassName() {
             return className;
         }
         public void setClassName(String className) {

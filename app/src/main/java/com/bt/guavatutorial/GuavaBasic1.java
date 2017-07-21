@@ -27,9 +27,9 @@ import java.util.List;
 
 import static java.math.RoundingMode.FLOOR;
 
-public class GuavaBasic {
+public class GuavaBasic1 {
 
-    public GuavaBasic() {
+    public GuavaBasic1() {
 
     }
 
@@ -37,8 +37,8 @@ public class GuavaBasic {
     /**
      * Optional
      */
-    Integer value1 = null;
-    Integer value2 = new Integer(10);
+    private Integer value1 = null;
+    private Integer value2 = 10;
     Optional<Integer> a = Optional.fromNullable(value1);
     Optional<Integer> b = Optional.of(value2);
 
@@ -97,7 +97,7 @@ public class GuavaBasic {
 
     public int getValuePre(int input) {
         int[] data = {1, 2, 3, 4, 5};
-        Preconditions.checkElementIndex(input, data.length,
+       int a = Preconditions.checkElementIndex(input, data.length,
                 "Illegal Argument passed: Invalid index.");
         return 0;
     }
@@ -110,7 +110,7 @@ public class GuavaBasic {
         final Integer[] items = {5, 2, 15, 51, 53, 35, 45, 32, 43, 16};
         List<Integer> numbers = new ArrayList<Integer>();
         for (Integer item: items){
-            numbers.add(new Integer(item));
+            numbers.add(Integer.valueOf(item));
         }
 
         Ordering ordering = Ordering.natural();
@@ -141,12 +141,13 @@ public class GuavaBasic {
                         .add("Roll No", s1.getRollNo())
                         .toString());
     }
-    class Student{
+
+    private class Student{
         private String firstName;
         private String lastName;
         private int rollNo;
         private String className;
-        public Student(String firstName, String lastName, int rollNo, String className){
+        Student(String firstName, String lastName, int rollNo, String className){
             this.firstName = firstName;
             this.lastName = lastName;
             this.rollNo = rollNo;
@@ -155,7 +156,7 @@ public class GuavaBasic {
 
         @Override
         public boolean equals(Object object){
-            if(!(object instanceof Student) || object == null){
+            if(!(object instanceof Student)){
                 return false;
             }
             Student student = (Student)object;
@@ -173,26 +174,26 @@ public class GuavaBasic {
             //no need to compute hashCode by self
             return Objects.hashCode(className,rollNo);
         }
-        public String getFirstName() {
+        String getFirstName() {
             return firstName;
         }
         public void setFirstName(String firstName) {
             this.firstName = firstName;
         }
-        public String getLastName() {
+        String getLastName() {
             return lastName;
         }
         public void setLastName(String lastName) {
             this.lastName = lastName;
         }
-        public int getRollNo() {
+        int getRollNo() {
             return rollNo;
 
         }
         public void setRollNo(int rollNo) {
             this.rollNo = rollNo;
         }
-        public String getClassName() {
+        String getClassName() {
             return className;
         }
         public void setClassName(String className) {
